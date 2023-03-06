@@ -91,7 +91,11 @@ if (file_exists($cus)) { include $cus; }
 
 // CHECK IF UPDATE AVAILABLE
 $latestVersion = file_get_contents('https://cs.elite-star-services.com/servinfo/core/version.txt');
-//  $remote_version = preg_replace('/[^\\d.]+/', '', $remote_version);
+
+  if ( !$latestVersion ) {
+    $noUp = "Yes";
+  }
+
   if (version_compare($latestVersion, $serverVersion) ==  1) {
     $hasUpdate = "Yes";
   }
@@ -102,6 +106,8 @@ if ($hasUpdate) {
 	echo "<table class='table table-condensed alert-table'>";
     echo "<tr class='w center'><td colspan='2'>** SERVER UPDATE AVAILABLE -- New Version: ".$latestVersion." ~ ";
     echo "Your Version: ".$serverVersion." -- <a class='bold-text' href='ss_upd.php?".$Stoken."'>UPGRADE SERVER NOW</a> **</td><td style='display:none;'></td></tr></table>";
+} elseif ($noUp) {
+    echo "<table class='table table-condensed alert-table'><tr class='i center'><td colspan='2'>* UNABLE TO CHECK FOR UPDATE * (Current Server Version ".$serverVersion.")</td><td style='display:none;'></td></tr></table>";
 } else {
     // Maybe just display nothing if no update needed?
     //echo "<table class='table table-condensed alert-table'><tr class='i center'><td colspan='2'>-- ServInfo Version ".$serverVersion." --</td><td style='display:none;'></td></tr></table>";

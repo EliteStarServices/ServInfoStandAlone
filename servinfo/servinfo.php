@@ -640,8 +640,6 @@ if ( !$remoteVersion ) {
     $noUp = "Yes";
 }
 
-
-//  $remote_version = preg_replace('/[^\\d.]+/', '', $remote_version);
   if (version_compare($remoteVersion, $clientVersion) ==  1) {
     $hasUpdate = "Yes";
   }
