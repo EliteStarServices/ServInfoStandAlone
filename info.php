@@ -28,7 +28,7 @@ require('head.php');
 
 
 
-ServInfo is designed to collect information and software versions for Linux Based Servers running php.
+ServInfo is designed to collect Software and System Information for Linux Based Servers running php.
 <br>
 
 
