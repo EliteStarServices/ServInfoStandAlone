@@ -1,5 +1,10 @@
 ## [ServInfo](https://servinfo.elite-star-services.com/) Client Change Log
 
+### v0.9.6
+2023-03-xx
+
+* Convert Project for Github Compatibility
+
 ### v0.9.5
 2023-02-19
 

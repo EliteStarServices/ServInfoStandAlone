@@ -8,9 +8,8 @@
 	/*
 	 * @Project: 
 	 *   ServInfo Server Information Manager
-	 *   Author: DigTek (Elite Star Services)
+	 *   Author: Elite Star Services
 	 *   Web: https://elite-star-services.com/servinfo
-	 *   Copyright © 2022 Elite Star Services
 	 * 
 	 * @Changelog:
 	 * https://servinfo.elite-star-services.com/sc-changelog/
@@ -90,7 +89,7 @@ if (file_exists($cus)) { include $cus; }
 <?php
 
 // CHECK IF UPDATE AVAILABLE
-$latestVersion = file_get_contents('https://cs.elite-star-services.com/servinfo/core/version.txt');
+$latestVersion = file_get_contents('https://cs.elite-star-services.com/servinfo_sa/dist/server/version.txt');
 
   if ( !$latestVersion ) {
     $noUp = "Yes";

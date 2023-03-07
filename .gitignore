@@ -1,3 +1,5 @@
+.htaccess
 ss_cnf.php
+dist/.htaccess
 servinfo/index.php
 servinfo/sc_cnf.php

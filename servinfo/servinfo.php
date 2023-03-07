@@ -622,7 +622,7 @@ if(isset($_GET["json"])) {
 
 // CHECK IF UPDATE AVAILABLE (skip if WP Plugin version)
 if (!$isWP) {
-$versionURL = "https://cs.elite-star-services.com/servinfo/client/version.txt";
+$versionURL = "https://cs.elite-star-services.com/servinfo_sa/dist/client/version.txt";
 $remoteVersion = file_get_contents($versionURL);
 
 if ( !$remoteVersion ) {

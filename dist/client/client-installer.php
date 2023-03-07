@@ -1,7 +1,7 @@
 <?php
     /*
-    * ServInfo Client Installer v0.9.4
-    * Author: DigTek (Elite Star Services)
+    * ServInfo Client Installer v0.9.6
+    * Author: Elite Star Services
     * Web: https://elite-star-services.com/servinfo
     *
     * @Changelog:
@@ -14,7 +14,7 @@
 <head>
 <!-- 3rd Party Hosted -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontawesome-4.7@4.7.0/css/font-awesome.min.css">
 <!-- Elite Star Hosted -->
 <link rel="stylesheet" href="https://cs.elite-star-services.com/common/css/ess.css"/>
 <link rel="stylesheet" href="https://cs.elite-star-services.com/common/css/servinfo.css"/>
@@ -25,7 +25,7 @@
 <script src="https://cs.elite-star-services.com/common/js/jquery.dataTables.min.js"></script>
 <script src="https://cs.elite-star-services.com/common/js/dataTables.bootstrap.min.js"></script>
 <script src="https://cs.elite-star-services.com/common/js/ess.dataTables.js" type="text/javascript"></script>
-<link rel="shortcut icon" href="https://cs.elite-star-services.com/servinfo/favicon.png">
+<link rel="shortcut icon" href="https://cs.elite-star-services.com/common/img/sifavicn.png">
 <title>ServInfo - Client Installer</title>
 </head>
 
@@ -165,7 +165,7 @@ echo "</table>";
 
 <b>Enter Server URL or IP</b> <i>including</i> http:// or https://<br>
 <input type="text" name="url" size="65"><br>
-<small>Example: http://10.0.10.100 | Leave Blank if StandAlone</small><br><br>
+<small>Example: http://10.0.10.11 | Leave Blank if StandAlone</small><br><br>
 
 <b>Enter Database User Name</b><br>
 <input type="text" name="dbuser" size="65"><br>
@@ -275,7 +275,7 @@ if (file_exists('servinfo/sc_cnf.php')){
 //file_put_contents("install.zip", fopen("https://cs.elite-star-services.com/servinfo/client/install.zip", 'r'));
 //file_put_contents("install.zip", file_get_contents("https://cs.elite-star-services.com/servinfo/client/install.zip"));
 
-$installURL = "https://cs.elite-star-services.com/servinfo/client/install.zip";
+$installURL = "https://cs.elite-star-services.com/servinfo_sa/dist/client/install.zip";
 $result = fopen($installURL, 'rb');
 
 if ( !$result ) {
