@@ -20,7 +20,7 @@
 
 
 // SET CURRENT VERSION
-$clientVersion = '0.9.5';
+$clientVersion = '0.9.6';
 
 
 // CHECK IF PLUGIN OR BROWSER CALL (check before loading wp-config)
@@ -157,7 +157,7 @@ $certOwn = "";
 if ($proxy != "") {
 $method = "GET";
 
-$full_url = "https://cs.elite-star-services.com/public/api/checkCert.php?domain=".$domain;
+$full_url = "https://cs.elite-star-services.com/common/api/checkCert.php?domain=".$domain;
 
 // CREATE THE JSON ARRAY
 $my_data = array(

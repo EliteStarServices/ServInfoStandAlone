@@ -61,7 +61,7 @@ if(isset($_GET["return"])) {
 
 
 // DOWNLOAD UPDATER SCRIPT
-// REVERT BACK TO STEALTH METHOD (WordFence alerts if zip downloader in local package)
+// REVERT BACK TO STEALTH METHOD (WordFence alerts if zip downloader exists in local package)
 
 echo "<li>Fetching Update Script...</li>";
 

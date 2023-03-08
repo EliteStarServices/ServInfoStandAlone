@@ -32,7 +32,7 @@ if(!isset($_GET[$Stoken])) { echo "ACCESS DENIED: Check Server and ServInfo Requ
     <script src="https://cs.elite-star-services.com/common/js/dataTables.bootstrap.min.js"></script>
     <script src="https://cs.elite-star-services.com/common/js/ess.dataTables.js" type="text/javascript"></script>
     <link rel="shortcut icon" href="https://cs.elite-star-services.com/common/img/sifavicn.png">
-    <title>ServInfo - Client Update Tool</title>
+    <title>ServInfo - Server Update Tool</title>
     </head>
 
 
@@ -51,7 +51,7 @@ if(!isset($_GET[$Stoken])) { echo "ACCESS DENIED: Check Server and ServInfo Requ
 
 
 // DOWNLOAD UPDATER SCRIPT
-// REVERT BACK TO STEALTH METHOD (WordFence alerts if zip downloader in local package)
+// REVERT BACK TO STEALTH METHOD (WordFence alerts if zip downloader exists in local package)
 
 echo "<li>Fetching Update Script...</li>";
 

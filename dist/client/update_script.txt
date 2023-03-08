@@ -99,6 +99,7 @@ $zip->close();
 
 // DESCRIPTION OF UPGRADE
 echo "<strong>Main Script was Updated</strong>...";
+echo "<br>Updater Script was Updated...";
 //echo "<br>Full File Refresh...";
 //echo "<br>userInc.php File Updated...";
 
@@ -118,6 +119,10 @@ echo "<li>Returning to ServInfo...</li>";
 // DETERMINE IF UPGRADE INITIATED FROM SERVER
 if(isset($_GET["return"]) && $si_url != "") {
 	$si_sid = $_GET["return"];
+    // REMOVE TRAILING SLASH IF PRESENT
+    if(substr($si_url, -1) == '/') {
+        $si_url = substr($si_url, 0, -1);
+    }
 	echo '<META HTTP-EQUIV="Refresh" Content="4; URL='.$si_url.'/sgl_srv.php?server='.$si_sid.'&update">';
 } else {
 	echo '<META HTTP-EQUIV="Refresh" Content="4; URL=servinfo.php?'.$token.'">';
