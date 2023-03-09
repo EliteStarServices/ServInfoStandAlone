@@ -64,7 +64,7 @@ require('ss_cnf.php');
 					<li><a href="./sho_srv.php"><i class="fa fa-eye fa-fw"> </i>View All Servers</a></li>
 					<li><a href="./sgl_srv.php"><i class="fa fa-h-square fa fa-plus-square fa-fw"> </i>Add New Server</a></li>
 					<li><a href="./upd_srv.php"><i class="fa fa-database fa-fw"> </i>Update All Servers</a></li>
-					<li><a href="https://cs.elite-star-services.com/servinfo/client/client-installer.zip"><i class="fa fa-download fa-fw"> </i>Download Client</a></li>
+					<li><a href="https://elite-star-services.com/dev/?smd_process_download=1&download_id=41"><i class="fa fa-download fa-fw"> </i>Download Client</a></li>
 					</ul>
 				</li>
 <?php

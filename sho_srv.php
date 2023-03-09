@@ -1,7 +1,7 @@
 <?php
 	/*
 	 * ServInfo Server Information Manager
-	 * Author: DigTek (Elite Star Services)
+	 * Author: Elite Star Services
 	 * Web: https://elite-star-services.com/servinfo
 	 * 
 	 * @Changelog:
@@ -139,6 +139,7 @@ foreach($output as $response){
 
 
 // TABLE OUTPUT
+$wpc = '';
 if ($wp_version != '0') { $wpc = "wp"; }
 echo "<tr class='".$wpc."'><td>";
 echo '<a href="'.$baseURL.'"><small><strong>'.$baseURL.'</strong></a><br><small>'.$sid.'</small></small></td><td>';

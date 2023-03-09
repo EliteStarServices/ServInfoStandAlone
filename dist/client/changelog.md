@@ -54,4 +54,4 @@ Code used in this project was often taken as examples from various sources
 *Web: http://virtualairlinesmanager.net*<br>
 *Copyright © 2013 - 2016 Alejandro Garcia*<br>
 * That project appears abandoned at this time
-* The code had Bootstrap & dataTables examples
+* The code has Bootstrap & dataTables examples I adopted
