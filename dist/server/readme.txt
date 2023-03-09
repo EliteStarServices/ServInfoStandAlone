@@ -1,7 +1,7 @@
 
      * @Project:
      * ServInfo Server Installer
-	* Author: DigTek (Elite Star Services)
+	* Author: Elite Star Services
 	* Web: https://elite-star-services.com/servinfo
      * 
      * @License:

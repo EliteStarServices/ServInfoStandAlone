@@ -275,7 +275,8 @@ $pmatok = substr($sid, 8, -8);
 // CHECK PHPMYADMIN URL CONFIG - BACKUP CHECK IF PMA EXISTS
 $pmaurl = $baseURL.'/phpmyadmin/';
 $pma_headers = @get_headers($pmaurl);
-if(!$pma_headers || $pma_headers[0] == 'HTTP/1.1 404 Not Found') {
+//print_r($pma_headers);
+if(!$pma_headers || $pma_headers[0] == 'HTTP/1.1 404 Not Found' || $pma_headers[0] == 'HTTP/1.1 301 Moved Permanently') {
 //    $pma_exists = false;
 //    echo "NOT FOUND";
 //    echo "<a href='".$baseURL."/phpmyadmin/'>NOT FOUND</a>";
@@ -470,7 +471,7 @@ if ($ckg == "") { $git = "Not Found"; } else { $git = ucwords($ckg); }
 // WARN IF GIT FOLDER IS PUBLIC
 $giturl = $baseURL.'/.git';
 $git_headers = @get_headers($giturl);
-if(!$git_headers || $git_headers[0] == 'HTTP/1.1 404 Not Found') {
+if(!$git_headers || $git_headers[0] == 'HTTP/1.1 404 Not Found' || $git_headers[0] == 'HTTP/1.1 301 Moved Permanently') {
 //    echo "<a href='".$baseURL."/.git'>GIT URL NOT FOUND</a>";
 //    echo '';
 }

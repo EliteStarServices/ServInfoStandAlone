@@ -97,8 +97,8 @@ $zip->close();
 
 // DESCRIPTION OF UPGRADE
 echo "<strong>Upgrading Server:</strong>...";
-echo "<br>Main Script was Updated...";
-echo "<br>Full File Refresh...";
+echo "<br>Apply Configuration Patches...";
+//echo "<br>Full File Refresh...";
 
 
 // DELETE UPGRADE & OLD FILES HERE

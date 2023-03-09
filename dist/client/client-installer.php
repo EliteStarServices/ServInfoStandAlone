@@ -163,7 +163,7 @@ echo "</table>";
 <input type="text" name="token" size="65"><br>
 <small>This should be a secure password</small><br><br>
 
-<b>Enter Server URL or IP</b> <i>including</i> http:// or https://<br>
+<b>Enter Server Root URL or IP</b> <i>including</i> http:// or https://<br>
 <input type="text" name="url" size="65"><br>
 <small>Example: http://10.0.10.11 | Leave Blank if StandAlone</small><br><br>
 

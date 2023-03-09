@@ -4,9 +4,8 @@
 	/*
 	 * @Project: 
 	 *   ServInfo Server Information Manager
-	 *   Author: DigTek (Elite Star Services)
+	 *   Author: Elite Star Services
 	 *   Web: https://elite-star-services.com/servinfo
-	 *   Copyright © 2022 Elite Star Services
 	 * 
 	 * @Changelog:
 	 * https://servinfo.elite-star-services.com/sc-changelog/
