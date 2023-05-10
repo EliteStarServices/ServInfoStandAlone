@@ -20,7 +20,7 @@
 
 
 // SET CURRENT VERSION
-$clientVersion = '0.9.6';
+$clientVersion = '0.9.7';
 
 
 // CHECK IF PLUGIN OR BROWSER CALL (check before loading wp-config)
@@ -449,16 +449,19 @@ if (!$dbHost) { $dbHost = "localhost"; }
     $sql_raw = mysqli_get_server_info($link);
     mysqli_close($link);
 
+
     // DATABASE TYPE DETECTION
     // Currently assuming MySQL if "Maria" not found in $sql_raw
     if (strpos($sql_raw, "Maria") !== false) {
         $pieces = explode("-", $sql_raw);
-        $sql = $pieces[2]." ".$pieces[1];
+        $dbtcvt = count($pieces);
+            if ($dbtcvt == 3) {
+            $sql = $pieces[1]." ".$pieces[0];
+            } else { $sql = $pieces[2]." ".$pieces[1]; }
     } else {
         $sql = "MySQL ".$sql_raw;
     }
 }
-
 
 
 
