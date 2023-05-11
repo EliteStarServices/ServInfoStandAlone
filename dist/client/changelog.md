@@ -1,6 +1,7 @@
 ## [ServInfo](https://servinfo.elite-star-services.com/) Client Change Log
 ---
 ### v0.9.7
+PENDING RELEASE
 2023-xx-xx
 
 * php8 Compatibility
