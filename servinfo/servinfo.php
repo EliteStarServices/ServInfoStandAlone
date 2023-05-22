@@ -32,7 +32,7 @@ if (file_exists('sc_cnf.php')) {
     require('sc_cnf.php');
 } else { 
     //require_once(ABSPATH . 'wp-config.php');
-    require( $_SERVER['DOCUMENT_ROOT'] . '/wp-config.php' );
+    require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-config.php' );
     if (!$token) { $token = SI_TOKEN; }
     $dbUser = DB_USER;
     $dbPass = DB_PASSWORD;
@@ -703,7 +703,7 @@ if ($hasUpdate) {
 // SHOW SERVINFO ARRAY IF DEV MODE ON
 if ($devMode == "TRUE") {
 //print_r($sysinf);
-    echo "<tr class='h center'><td colspan='2'>INFORMATION PASSED TO DATABASE - FOR TESTING ONLY</td><td style='display:none;'></td></tr>";
+    echo "<tr class='h center'><td colspan='2'>INFORMATION PASSED TO DATABASE - DEV MODE ACTIVE</td><td style='display:none;'></td></tr>";
     foreach ($sysinf as $key => $value) { 
        echo '<tr><td class="e">'.$key.'</td><td class="v">'.$value.'</td></tr>';
     }

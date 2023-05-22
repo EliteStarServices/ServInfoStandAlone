@@ -1,6 +1,6 @@
 <?php
     /*
-    * ServInfo Client Installer v0.9.6
+    * ServInfo Client Installer v0.9.7
     * Author: Elite Star Services
     * Web: https://elite-star-services.com/servinfo
     *
@@ -45,7 +45,6 @@
 error_reporting(0); //off
 //error_reporting(E_ALL); //on
 //ini_set('display_errors', '1'); //on
-
 
 
 
@@ -145,7 +144,6 @@ echo "</table>";
 
 
 
-
 ?>
 <div class="row">
 <div class="col-md-12">
@@ -210,14 +208,12 @@ if ($vm == "vm") {
 
 
 
-
-
-
-
 <?php
 // FORM DATA EXISTS
 } else {
 ?>
+
+
 
 
 <div class="row">
@@ -252,9 +248,7 @@ if (!file_exists($dir)) {
     mkdir ($dir, 0774);
 }
 
-
 // COPY FILES
-
 
 file_put_contents ($dir.'/test.txt', 'Test');
 */
@@ -313,7 +307,6 @@ $zip->close();
   echo "INSTALL FAILED - PACKAGE NOT FOUND";
   die();
 }
-
 
 
 

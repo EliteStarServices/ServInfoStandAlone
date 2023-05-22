@@ -22,7 +22,7 @@ require('head.php');
 
 
 // GET CLIENT REMOTE VERSION
-$remoteVersion = file_get_contents('https://cs.elite-star-services.com/servinfo/client/version.txt');
+$remoteVersion = file_get_contents('https://cs.elite-star-services.com/servinfo_sa/dist/client/version.txt');
 
 
 

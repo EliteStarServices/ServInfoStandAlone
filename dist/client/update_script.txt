@@ -1,7 +1,7 @@
 <?php
 
 	/*
-	 * ServInfo Client Updater v0.9.6
+	 * ServInfo Client Updater v0.9.7
 	 * Author: Elite Star Services
 	 * Web: https://elite-star-services.com/servinfo
 	 * 
