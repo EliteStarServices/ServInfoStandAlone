@@ -1,10 +1,11 @@
 ## [ServInfo](https://servinfo.elite-star-services.com/) Client Change Log
 ---
 ### v0.9.7
-PENDING RELEASE<br>
-2023-xx-xx
+2023-05-22
 
 * php8 Compatibility
+* Improved WordPress Interface
+* ClassicPress Compatibility
 
 ### v0.9.6
 2023-03-07
