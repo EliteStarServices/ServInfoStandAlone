@@ -4,7 +4,7 @@
 2023-05-22
 
 * php8 Compatibility
-* Improved WordPress Interface
+* Improved WordPress Client
 * ClassicPress Compatibility
 
 ### v0.9.6
