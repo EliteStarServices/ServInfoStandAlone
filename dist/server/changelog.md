@@ -1,5 +1,10 @@
 ## [ServInfo](https://servinfo.elite-star-services.com/) Server Change Log
 ---
+### v0.9.5
+2023-xx-xx
+
+* Activate Delete Server Function
+
 ### v0.9.4
 2023-03-08
 
