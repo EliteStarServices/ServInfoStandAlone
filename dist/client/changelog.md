@@ -1,5 +1,10 @@
 ## [ServInfo](https://servinfo.elite-star-services.com/) Client Change Log
 ---
+### v0.9.8
+2023-xx-xx
+
+* Added LXQT Detection
+
 ### v0.9.7
 2023-05-22
 
