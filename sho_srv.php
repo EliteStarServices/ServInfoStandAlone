@@ -176,7 +176,11 @@ echo '<a href="'.$view.'"><img src="'.$iconURL.'view-icon.png" width="32" title=
 echo '<a href="'.$upd_serv.'"><img src="'.$iconURL.'update-icon.png" width="32" title="UPDATE SERVER"></a></td><td>';
 }
 
-echo '<a href="'.$del_serv.'"><img src="'.$iconURL.'delete-icon.png" width="32" title="DELETE SERVER"></a></td></tr>';
+
+// DELETE CONFIRMATION ADDED
+echo '<a href="'.$del_serv.'" onclick="return confirm(`Are you sure you want to delete the entry '.$domain.'?`);"><img src="'.$iconURL.'delete-icon.png" width="32" title="DELETE SERVER"></a></td></tr>';
+//echo '<a href="'.$del_serv.'"><img src="'.$iconURL.'delete-icon.png" width="32" title="DELETE SERVER"></a></td></tr>';
+
 
 	}
 				echo "</table>";

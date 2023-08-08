@@ -214,7 +214,6 @@ echo "New Server ".$domain." Added to ServInfo Database...<br><small><a href='".
 } else { 
 
 
-
 	// DELETE SERVER
 	if(isset($_GET['delete'])) { 
 ?>
@@ -227,12 +226,14 @@ echo "New Server ".$domain." Added to ServInfo Database...<br><small><a href='".
 	</div>
 <div class="panel-body">
 <?php
+
+$sqd = "DELETE FROM servdata WHERE sid_db = '$serverID'";
+if (!$result = $db->query($sqd)) { die('There was an error running the delete query [' . $db->error . ']'); }
+
 echo "Server ".$domain." deleted from ServInfo Database...<br><small><i>Client software was NOT removed</i></small>";
 
-//$sqd = "DELETE FROM servdata WHERE sid_db = '$serverID'";
-//if (!$result = $db->query($sqd)) { die('There was an error running the delete query [' . $db->error . ']'); }
-	} else {
 
+	} else {
 	
 
 	// UPDATE SERVER
