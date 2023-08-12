@@ -4,6 +4,8 @@
 2023-xx-xx
 
 * Activate Delete Server Function
+* Improved CP or WP Detection
+* Code Cleanup on Main Page
 
 ### v0.9.4
 2023-03-08
