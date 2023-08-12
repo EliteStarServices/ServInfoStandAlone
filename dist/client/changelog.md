@@ -3,9 +3,9 @@
 ### v0.9.8
 2023-xx-xx
 
-* Determine CP or WP if Plugin
 * Added LXQT GUI Detection
 * Added LinuxMint & Cinnamon GUI Detection
+* Determine ClassicPress or WordPress if Plugin
 
 ### v0.9.7
 2023-05-22
