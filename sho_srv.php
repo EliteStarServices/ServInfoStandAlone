@@ -44,7 +44,7 @@ if (!$result = $db->query($sqh)) { die('There was an error running the query [' 
 			<table id="serv_info" class="table table-hover table-small" data-order='[[ 0, "asc" ]]'>
 <?php
 echo '<thead>';
-echo "<tr><th>SERVER URL | ID</th><th>NAME | TOKEN</th><th>OPERATING SYSTEM</th><th>WEB USER | IP</th><th>WEB SW | ROOT</th><th>PHP | SQL</th><th>CERTIFICATE | UPTIME</th><th>CPU | MEMORY INFORMATION</th><th>VM | GUI</th><th>UPDATED</th><th><font size='1'>UP</font></th><th><font size='1'>VIEW</font></th><th><font size='1'>UPD</font></th><th><font size='1'>DEL</font></th></tr>";
+echo "<tr><th>SERVER URL | ID</th><th>NAME | TOKEN</th><th>OPERATING SYSTEM</th><th>WEB USER | IP</th><th>WEB SW | ROOT</th><th>PHP | SQL</th><th>CERT | UPTIME</th><th>CPU | MEMORY INFO</th><th>VM | GUI</th><th>UPDATED</th><th><font size='1'>UP</font></th><th><font size='1'>VIEW</font></th><th><font size='1'>UPD</font></th><th><font size='1'>DEL</font></th></tr>";
 echo '</thead>';
 
 	while ($row = $result->fetch_assoc()) {
@@ -105,7 +105,9 @@ $preup = explode(":", $row["run_db"]);
 $upTime = $preup[0].' Days, '.$preup[1].' Hrs, '.$preup[2].' Min';
 
 $precpu = explode(":", $row["cpu_db"]);
-if ($precpu[2] != 0) { $cpuInf = $precpu[0].' x '.$precpu[1].' @ '.$precpu[2].'MHz'; } else { $cpuInf = $precpu[0].' x '.$precpu[1]; }
+// DISABLES CLOCK RATE DISPLAY - PHP8+ DOES NOT SHOW IT ANYMORE
+// if ($precpu[2] != 0) { $cpuInf = $precpu[0].' x '.$precpu[1].' @ '.$precpu[2].'MHz'; } else { $cpuInf = $precpu[0].' x '.$precpu[1]; }
+$cpuInf = $precpu[0].' x '.$precpu[1];
 
 $premem = explode(":", $row["mem_db"]);
 $memInf = 'Total: '.$premem[0].'MB / Available: '.$premem[1].'MB';
@@ -140,14 +142,19 @@ foreach($output as $response){
 
 // TABLE OUTPUT
 $wpc = '';
-if ($wp_version != '0') { $wpc = "wp"; }
+if ($wp_version != '0') { $wpc = "cp"; }
+if ($wp_version >= 5) { $wpc = "wp"; }
 echo "<tr class='".$wpc."'><td>";
 echo '<a href="'.$baseURL.'"><small><strong>'.$baseURL.'</strong></a><br><small>'.$sid.'</small></small></td><td>';
 echo '<small>'.$row["host_db"].'<br>'.$row["pass_db"].'</small></td><td>';
 echo '<small>'.$row["os_db"].'<br>'.$row["ker_db"].'</small></td><td>';
 echo '<small>'.$row["user_db"].'<br>'.$ip.'</small></td><td>';
-echo '<small>'.$row["web_db"].'<br>'.$row["www_db"].'</small></td><td>';
-echo '<small>PHP '.$row["php_db"].'<br>'.$row["sql_db"].'</small></td><td>';
+$www_in = $row["www_db"];
+$web_out = explode(' (', $row["web_db"]);
+$www_out = (strlen($www_in) > 21) ? '<span  title="'.$www_in.'">'.substr($www_in,0,18).'...' : $www_in;
+echo '<small>'.$web_out[0].'<br>'.$www_out.'</small></td><td>';
+$php_out = explode('-', $row["php_db"]);
+echo '<small>PHP '.$php_out[0].'<br>'.$row["sql_db"].'</small></td><td>';
 
 
 // DETERMINE HOW TO SHOW CERT INFO
