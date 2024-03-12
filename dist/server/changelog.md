@@ -1,11 +1,11 @@
 ## [ServInfo](https://servinfo.elite-star-services.com/) Server Change Log
 ---
 ### v0.9.5
-2023-xx-xx
+2024-03-12
 
 * Activate Delete Server Function
 * Improved CP or WP Detection
-* Code Cleanup on Main Page
+* Code Cleanup
 
 ### v0.9.4
 2023-03-08

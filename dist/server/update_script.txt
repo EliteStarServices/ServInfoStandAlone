@@ -97,7 +97,7 @@ $zip->close();
 
 // DESCRIPTION OF UPGRADE
 echo "<strong>Upgrading Server:</strong>...";
-echo "<br>Apply Configuration Patches...";
+//echo "<br>Apply Configuration Patches...";
 //echo "<br>Full File Refresh...";
 
 

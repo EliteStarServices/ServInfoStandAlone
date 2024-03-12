@@ -137,7 +137,7 @@ $data = json_decode($page, TRUE);
 //print_r($data);
 
 // DIE HERE IF NO DATA IN REQUEST
-if ($data == NULL) { die("ERROR - No Client Found @ ".$main_url.": Check Server and ServInfo Requirements..."); } else {
+if ($data == NULL) { die("ERROR - No Client Found @ ".$full_url.": Check Server and ServInfo Requirements..."); } else {
 
 
 

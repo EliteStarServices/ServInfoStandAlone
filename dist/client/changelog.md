@@ -1,11 +1,12 @@
 ## [ServInfo](https://servinfo.elite-star-services.com/) Client Change Log
 ---
 ### v0.9.8
-2023-xx-xx
+2024-03-12
 
 * Added LXQT GUI Detection
 * Added LinuxMint & Cinnamon GUI Detection
 * Determine ClassicPress or WordPress if Plugin
+* Code Cleanup
 
 ### v0.9.7
 2023-05-22

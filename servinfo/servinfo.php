@@ -20,7 +20,7 @@
 
 
 // SET CURRENT VERSION
-$clientVersion = '0.9.7';
+$clientVersion = '0.9.8';
 
 
 // CHECK IF PLUGIN OR BROWSER CALL (check before loading wp-config)
@@ -39,10 +39,9 @@ if (file_exists('sc_cnf.php')) {
     $isWP = "Yes";
 }
 
-
 // PASSWORD PROTECTION - CLIENT NEEDS TOKEN
-if (!$wp_version) { $wp_version = '0'; }
-if ($isPlug) { $_GET[$token] = $token; }
+if (!isset($wp_version)) { $wp_version = '0'; }
+if (isset($isPlug)) { $_GET[$token] = $token; }
 if (!isset($_GET[$token])) { echo "ACCESS DENIED: Check Server and ServInfo Requirements..."; }
 else {
 
@@ -113,7 +112,7 @@ function phpinfo_array($return=false){
 
 
 // CHECK IF BEHIND PROXY SERVER
-$proxy = $_SERVER['HTTP_X_FORWARDED_FOR'];
+@$proxy = $_SERVER['HTTP_X_FORWARDED_FOR'];
 
 
 // GET PHP VERSION
@@ -198,11 +197,11 @@ $certinfo = json_decode($data, true);
 
 // MAKE LOCAL CHECK FOR SSL CERTIFICATE
 $get = stream_context_create(array("ssl" => array("capture_peer_cert" => TRUE)));
-$read = stream_socket_client("ssl://".$domain.":443", $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $get);
+@$read = stream_socket_client("ssl://".$domain.":443", $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $get);
+if ($read) {
 $cert = stream_context_get_params($read);
-print_r($cert);
-
 $certinfo = openssl_x509_parse($cert['options']['ssl']['peer_certificate']);
+}
 
 //print_r($certinfo);
 }
@@ -210,6 +209,7 @@ $certinfo = openssl_x509_parse($cert['options']['ssl']['peer_certificate']);
 
 
 // PROCESS CERTIFICATE DATA
+if (isset($certinfo)) {
 $valid_to = date(DATE_RFC2822, $certinfo['validTo_time_t']);
 $thisDte = date_create($valid_to);
 $certDat = date_format($thisDte, 'n/j/Y');
@@ -221,7 +221,7 @@ foreach ($certinfo as $key => $item) {
         }
     }
 }
-
+}
 
 
 
@@ -237,7 +237,7 @@ if ($certOwn == "") {
     $setHT = "https";
 }
 
-if ($isPlug) {
+if (isset($isPlug)) {
     require ('../'.WPINC.'/version.php');
     $url = plugin_dir_url( __FILE__ );
 } else {
@@ -440,7 +440,7 @@ if ($dbPass == "") {
     $sql_raw = "";
     $sql = "DB Check Disabled";
 } else {
-if (!$dbHost) { $dbHost = "localhost"; }
+if (!isset($dbHost)) { $dbHost = "localhost"; }
     $link = mysqli_connect($dbHost, $dbUser, $dbPass);
     if (mysqli_connect_errno()) {
         printf("Connect failed: %s\n", mysqli_connect_error());
@@ -475,6 +475,7 @@ if ($ckg == "") { $git = "Not Found"; } else { $git = ucwords($ckg); }
 $giturl = $baseURL.'/.git';
 $git_headers = @get_headers($giturl);
 if(!$git_headers || $git_headers[0] == 'HTTP/1.1 404 Not Found' || $git_headers[0] == 'HTTP/1.1 301 Moved Permanently') {
+    $gitwarn = '';
 //    echo "<a href='".$baseURL."/.git'>GIT URL NOT FOUND</a>";
 //    echo '';
 }
@@ -625,7 +626,7 @@ if(isset($_GET["json"])) {
 
 
 // CHECK IF UPDATE AVAILABLE (skip if WP Plugin version)
-if (!$isWP) {
+if (!isset($isWP)) {
 $versionURL = "https://cs.elite-star-services.com/servinfo_sa/dist/client/version.txt";
 $remoteVersion = file_get_contents($versionURL);
 
@@ -688,10 +689,10 @@ echo "<div class='panel panel-navbar'>";
 // TITLE & VERSION / UPGRADE INFORMATION
 echo "<div class='panel-heading center'><a class='si-page-title' href='".$si_url."'>ServInfo Server Information Manager</a></div>";
 echo "<table class='table table-condensed'>";
-if ($hasUpdate) {
+if (isset($hasUpdate)) {
     echo "<tr class='w center'><td colspan='2'>** CLIENT UPDATE AVAILABLE -- New Version: ".$remoteVersion." ~ ";
     echo "Your Version: ".$clientVersion." -- <a class='bold-text' href='sc_upd.php?".$token."'>UPGRADE CLIENT NOW</a> **</td><td style='display:none;'></td></tr>";
-} elseif ($noUp) {
+} elseif (isset($noUp)) {
     // Warn if not able to check version
     echo "<tr class='w center'><td colspan='2'>* UNABLE TO CHECK FOR UPDATE * (Current Client Version ".$clientVersion.")</td><td style='display:none;'></td></tr>";
 } else {
@@ -764,13 +765,13 @@ echo '<tr><td class="e">PHP Version</td><td class="v">'.$php.'</td></tr>';
 echo '<tr><td class="e">Database Server</td><td class="v">'.$sql.'</td></tr>';
 echo '<tr><td class="e">Raw SQL Data</td><td class="v">'.$sql_raw.'</td></tr>';
 
-if ($pma_exists) { echo '<tr><td class="e">phpMyAdmin Link</td><td class="v">'.$pmalink.'</td></tr>'; }
-if ($pmainfo) { echo '<tr><td class="e">phpMyAdmin Token for Above Instructions</td><td class="v">-'.$pmatok.'</td></tr>'; }
-if ($pma) { echo '<tr><td class="e">phpMyAdmin Version</td><td class="v">'.$pma.'</td></tr>'; }
+if (isset($pma_exists)) { echo '<tr><td class="e">phpMyAdmin Link</td><td class="v">'.$pmalink.'</td></tr>'; }
+if (isset($pmainfo)) { echo '<tr><td class="e">phpMyAdmin Token for Above Instructions</td><td class="v">-'.$pmatok.'</td></tr>'; }
+if (isset($pma)) { echo '<tr><td class="e">phpMyAdmin Version</td><td class="v">'.$pma.'</td></tr>'; }
 
-if ($redis) { echo '<tr><td class="e">php-Redis Version</td><td class="v">'.$redis.'</td></tr>'; }
+if (isset($redis)) { echo '<tr><td class="e">php-Redis Version</td><td class="v">'.$redis.'</td></tr>'; }
 
-if ($git) { echo '<tr><td class="e">GIT (Version Control)</td><td class="v">'.$git.$gitwarn.'</td></tr>'; }
+if (isset($git)) { echo '<tr><td class="e">GIT (Version Control)</td><td class="v">'.$git.$gitwarn.'</td></tr>'; }
 
 echo '<tr><td class="e">Desktop / GUI</td><td class="v">'.$gui.'</td></tr>';
 echo '<tr><td class="e">Virtualization</td><td class="v">'.$vm.'</td></tr>';
@@ -797,7 +798,7 @@ echo '<tr><td class="e">Full Kernel Info</td><td class="v">'.$ker_raw.'</td></tr
 
 
 // SHOW ENVIRONMENT INFO IF PHP > 5
-if ($phpV > 6) {
+if ($php > 6) {
 echo "<tr class='si-heading center'><td colspan='2'>ENVIRONMENT INFORMATION</td><td style='display:none;'></td></tr>";
 $envInf = getenv();
 //print_r($envInf);

@@ -101,11 +101,11 @@ $latestVersion = file_get_contents('https://cs.elite-star-services.com/servinfo_
 
 
 // SHOW VERSION / UPGRADE INFORMATION
-if ($hasUpdate) {
+if (isset($hasUpdate)) {
 	echo "<table class='table table-condensed alert-table'>";
     echo "<tr class='w center'><td colspan='2'>** SERVER UPDATE AVAILABLE -- New Version: ".$latestVersion." ~ ";
     echo "Your Version: ".$serverVersion." -- <a class='bold-text' href='ss_upd.php?".$Stoken."'>UPGRADE SERVER NOW</a> **</td><td style='display:none;'></td></tr></table>";
-} elseif ($noUp) {
+} elseif (isset($noUp)) {
     echo "<table class='table table-condensed alert-table'><tr class='i center'><td colspan='2'>* UNABLE TO CHECK FOR UPDATE * (Current Server Version ".$serverVersion.")</td><td style='display:none;'></td></tr></table>";
 } else {
     // Maybe just display nothing if no update needed?
