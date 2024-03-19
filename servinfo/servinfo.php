@@ -33,7 +33,7 @@ if (file_exists('sc_cnf.php')) {
 } else { 
     //require_once(ABSPATH . 'wp-config.php');
     require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-config.php' );
-    if (!$token) { $token = SI_TOKEN; }
+    if (!isset($token)) { $token = SI_TOKEN; }
     $dbUser = DB_USER;
     $dbPass = DB_PASSWORD;
     $isWP = "Yes";
@@ -99,7 +99,9 @@ function phpinfo_array($return=false){
        '#%S%(?:<td>(.*?)</td>)?(?:<td>(.*?)</td>)?(?:<td>(.*?)</td>)?%E%#',
          $section, $askapache, PREG_SET_ORDER);
        foreach($askapache as $m)
+       If (isset($m[2])) {
            $pi[$n][$m[1]]=(!isset($m[3])||$m[2]==$m[3])?$m[2]:array_slice($m,2);
+       }
     }
     
     return ($return === false) ? print_r($pi) : $pi;
@@ -260,8 +262,10 @@ $ip = $_SERVER['SERVER_ADDR'];
 // CHECK FOR PHPMYADMIN VERSION
 $pma_chk = shell_exec("dpkg -l phpmyadmin");
 $pma_tmp = explode(":", $pma_chk);
-$pma_v = explode(" ", $pma_tmp[2]);
-$pma = $pma_v[0];
+if (isset($pma_tmp[2])) {
+	$pma_v = explode(" ", $pma_tmp[2]);
+	$pma = $pma_v[0];
+}
 //print_r($pma);
 //echo $pma;
 //echo "<br>";
@@ -702,7 +706,7 @@ if (isset($hasUpdate)) {
 
 
 // SHOW SERVINFO ARRAY IF DEV MODE ON
-if ($devMode == "TRUE") {
+if (isset($devmode) && $devMode == "TRUE") {
 //print_r($sysinf);
     echo "<tr class='h center'><td colspan='2'>INFORMATION PASSED TO DATABASE - DEV MODE ACTIVE</td><td style='display:none;'></td></tr>";
     foreach ($sysinf as $key => $value) { 
@@ -814,7 +818,9 @@ if ($certOwn != "") {
 echo "<tr class='si-heading center'><td colspan='2'>CERTIFICATE INFORMATION</td><td style='display:none;'></td></tr>";
 echo '<tr><td class="e">Certificate Expiration Date</td><td class="v">'.$certDat.'</td></tr>';
     foreach ($certinfo as $key => $item) {
-    echo '<tr><td class="e">'.$key.'</td><td class="v">'.$item.'</td></tr>';
+        if ($item != "" && !is_array($item)) {
+            echo '<tr><td class="e">'.$key.'</td><td class="v">'.$item.'</td></tr>';
+        }
         if ($key == "subject") {
             foreach ($item as $type => $value) {
            echo '<tr><td class="e">'.$type.'</td><td class="v">'.$value.'</td></tr>';
@@ -961,7 +967,7 @@ echo "<tr class='si-heading center'><td colspan='2'>PHPINFO INFORMATION</td><td 
 foreach ($show_array as $id => $array) {
 echo "<tr class='l'><td colspan='2'><center><b>".$id."</b></center></td><td style='display:none;'></td></tr>";
     foreach ($array as $key => $item) { 
-        if ($item != "") {
+        if ($item != "" && !is_array($item)) {
         echo '<tr><td class="e">'.$key.'</td><td class="v">'.$item.'</td></tr>'; 
         }
     }
