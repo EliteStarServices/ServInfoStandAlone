@@ -191,9 +191,13 @@ if ($key == "WPV") { $wpv = mysqli_real_escape_string($db, $value); }
 
 
 // CHECK IF SERVER IN DATABASE
-$getServ = "SELECT sid_db FROM servdata WHERE sid_db LIKE '$serverID'";
-if (!$result_serv = $db->query($getServ)) { die('There was an error running the query [' . $db->error . ']'); }
-$row_serv = $result_serv->num_rows;
+if (isset($serverID)) {
+	$getServ = "SELECT sid_db FROM servdata WHERE sid_db LIKE '$serverID'";
+	if (!$result_serv = $db->query($getServ)) { die('There was an error running the query [' . $db->error . ']'); }
+	$row_serv = $result_serv->num_rows;
+} else {
+	$row_serv = 0;
+}
 
 //$row_s = mysqli_fetch_array($result_serv);
 //$serv_ip = $row_s["ip"];

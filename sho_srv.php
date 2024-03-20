@@ -142,12 +142,29 @@ foreach($output as $response){
 
 // TABLE OUTPUT
 $wpc = '';
-if ($wp_version != '0') { $wpc = "cp"; }
-if ($wp_version >= 5) { $wpc = "wp"; }
+$my_cm = '';
+if ($wp_version != "0") {
+	if ( version_compare( $wp_version, '4.7', 'lt' ) ) { 
+		$wpc = "cp";
+		$my_cm = 'CP v'.$wp_version;
+	}
+	if ( version_compare( $wp_version, '4.8', 'gt' ) ) { 
+		$wpc = "wp";
+		$my_cm = 'WP v'.$wp_version;
+	}
+}
 echo "<tr class='".$wpc."'><td>";
 echo '<a href="'.$baseURL.'"><small><strong>'.$baseURL.'</strong></a><br><small>'.$sid.'</small></small></td><td>';
 echo '<small>'.$row["host_db"].'<br>'.$row["pass_db"].'</small></td><td>';
-echo '<small>'.$row["os_db"].'<br>'.$row["ker_db"].'</small></td><td>';
+
+// SHOW xPress version if found
+if ($my_cm != "") {
+	$KorP = $my_cm;
+} else {
+	$KorP = $row["ker_db"];
+}
+echo '<small>'.$row["os_db"].'<br>'.$KorP.'</small></td><td>';
+
 echo '<small>'.$row["user_db"].'<br>'.$ip.'</small></td><td>';
 $www_in = $row["www_db"];
 $web_out = explode(' (', $row["web_db"]);
@@ -158,7 +175,6 @@ echo '<small>PHP '.$php_out[0].'<br>'.$row["sql_db"].'</small></td><td>';
 
 
 // DETERMINE HOW TO SHOW CERT INFO
-
 if ($ssl == "No Certificate Found") {
 	echo '<small>'.$ssl.'<br>'.$upTime.'</small></td><td>';
 } else {

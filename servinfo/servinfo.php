@@ -40,7 +40,13 @@ if (file_exists('sc_cnf.php')) {
 }
 
 // PASSWORD PROTECTION - CLIENT NEEDS TOKEN
+global $wp_version;
 if (!isset($wp_version)) { $wp_version = '0'; }
+if (function_exists( 'classicpress_version' )) { 
+    $myp_ver = classicpress_version(); 
+} else {
+    $myp_ver = $wp_version;
+}
 if (isset($isPlug)) { $_GET[$token] = $token; }
 if (!isset($_GET[$token])) { echo "ACCESS DENIED: Check Server and ServInfo Requirements..."; }
 else {
@@ -371,6 +377,8 @@ exec($dt, $desk);
 foreach ($desk as $key => $value) { 
     // Detect Values Go Here
     if ($value == "/usr/bin/lxsession") { $gui = "LXDE"; }
+    if ($value == "/usr/bin/cinnamon-session") { $gui = "MINT"; }
+    if ($value == "/usr/bin/lxqt-session") { $gui = "LXQT"; }
     $guiInf[$key] = $value;
 }
 
@@ -588,7 +596,7 @@ $sysinf = array( "SID" => $sid,
                 "SQL" => $sql,
                 "GIT" => $git,
                 "VER" => $clientVersion,
-                "WPV" => $wp_version );
+                "WPV" => $myp_ver );
 $cvsinf = $sysinf;
 
 
@@ -691,6 +699,7 @@ echo "<div class='panel panel-navbar'>";
 
 
 // TITLE & VERSION / UPGRADE INFORMATION
+global $si_url;
 echo "<div class='panel-heading center'><a class='si-page-title' href='".$si_url."'>ServInfo Server Information Manager</a></div>";
 echo "<table class='table table-condensed'>";
 if (isset($hasUpdate)) {
@@ -706,12 +715,12 @@ if (isset($hasUpdate)) {
 
 
 // SHOW SERVINFO ARRAY IF DEV MODE ON
-if (isset($devmode) && $devMode == "TRUE") {
+if (isset($devMode) && $devMode == "TRUE") {
 //print_r($sysinf);
     echo "<tr class='h center'><td colspan='2'>INFORMATION PASSED TO DATABASE - DEV MODE ACTIVE</td><td style='display:none;'></td></tr>";
     foreach ($sysinf as $key => $value) { 
        echo '<tr><td class="e">'.$key.'</td><td class="v">'.$value.'</td></tr>';
-    }
+}
 
 
 // DESKTOP DETECTION TESTING
@@ -780,7 +789,8 @@ if (isset($git)) { echo '<tr><td class="e">GIT (Version Control)</td><td class="
 echo '<tr><td class="e">Desktop / GUI</td><td class="v">'.$gui.'</td></tr>';
 echo '<tr><td class="e">Virtualization</td><td class="v">'.$vm.'</td></tr>';
 echo '<tr><td class="e">ServInfo Client Version</td><td class="v">'.$clientVersion.'</td></tr>';
-if ($wp_version != '0') { echo '<tr><td class="e">WordPress Version</td><td class="v">'.$wp_version.'</td></tr>'; }
+if (function_exists( 'classicpress_version' )) { $my_cm = "ClassicPress"; } else { $my_cm = "WordPress"; }
+if ($wp_version != '0') { echo '<tr><td class="e">'.$my_cm.' Version</td><td class="v">'.$myp_ver.'</td></tr>'; }
 
 
 // SHOW OS INFO
