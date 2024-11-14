@@ -5,7 +5,7 @@
 	 * @Project:
 	 * ServInfo Server Information Manager
 	 * Author: DigTek (Elite Star Services)
-	 * Web: https://elite-star-services.com/servinfo
+	 * Web: https://servinfo.elite-star-services.com/
 	 * 
 	 * License: GPL v3 | https://elite-star-services.com/license/
 	*/
@@ -173,6 +173,7 @@ if ($key == "WEB") { $web = mysqli_real_escape_string($db, $value); }
 if ($key == "WWW") { $www = mysqli_real_escape_string($db, $value); }
 if ($key == "USER") { $user = mysqli_real_escape_string($db, $value); }
 if ($key == "PHP") { $php = mysqli_real_escape_string($db, $value); }
+if ($key == "PMA") { $pma_link = mysqli_real_escape_string($db, $value); }
 if ($key == "SSL") { $ssl = mysqli_real_escape_string($db, $value); }
 if ($key == "SQL") { $sql = mysqli_real_escape_string($db, $value); }
 if ($key == "GIT") { $git = mysqli_real_escape_string($db, $value); }
@@ -210,8 +211,8 @@ if ($row_serv == 0) {
 
 	// INSERT SERVER
 echo "New Server ".$domain." Added to ServInfo Database...<br><small><a href='".$scriptURL.$post_url."'>VIEW DETAILED INFO FOR THIS SERVER</a>";
-	$sqi = "INSERT INTO servdata (sid_db, url_db, ip_db, pass_db, host_db, run_db, os_db, ker_db, gui_db, vm_db, cpu_db, mem_db, web_db, www_db, user_db, php_db, ssl_db, sql_db, git_db, ver_db, last_update)
-	VALUES ('$sid', '$url', '$ip', '$token', '$host', '$run', '$os', '$ker', '$gui', '$vm', '$cpu', '$mem', '$web', '$www', '$user', '$php', '$ssl', '$sql', '$git', '$ver', '$date')";
+	$sqi = "INSERT INTO servdata (sid_db, url_db, ip_db, pass_db, host_db, run_db, os_db, ker_db, gui_db, vm_db, cpu_db, mem_db, web_db, www_db, user_db, php_db, xdb1, ssl_db, sql_db, git_db, ver_db, last_update)
+	VALUES ('$sid', '$url', '$ip', '$token', '$host', '$run', '$os', '$ker', '$gui', '$vm', '$cpu', '$mem', '$web', '$www', '$user', '$php', $pma_link, '$ssl', '$sql', '$git', '$ver', '$date')";
 	if (!$result = $db->query($sqi)) { die('There was an error running insert the query [' . $db->error . ']'); }
 
 	
@@ -242,7 +243,7 @@ echo "Server ".$domain." deleted from ServInfo Database...<br><small><i>Client s
 
 	// UPDATE SERVER
 echo "Server ".$domain." Updated...<br><small><a href='".$scriptURL.$post_url."'>VIEW DETAILED INFO FOR THIS SERVER</a>";
-$squ = "UPDATE servdata SET url_db = '$url', ip_db = '$ip', pass_db = '$token', host_db = '$host', run_db = '$run', os_db = '$os', ker_db = '$ker', gui_db = '$gui', vm_db = '$vm', cpu_db = '$cpu', mem_db = '$mem', web_db = '$web', www_db = '$www', user_db = '$user', php_db = '$php', ssl_db = '$ssl', sql_db = '$sql', git_db = '$git', ver_db = '$ver', last_update = '$date' WHERE sid_db = '$serverID'";
+$squ = "UPDATE servdata SET url_db = '$url', ip_db = '$ip', pass_db = '$token', host_db = '$host', run_db = '$run', os_db = '$os', ker_db = '$ker', gui_db = '$gui', vm_db = '$vm', cpu_db = '$cpu', mem_db = '$mem', web_db = '$web', www_db = '$www', user_db = '$user', php_db = '$php', xdb1 = '$pma_link', ssl_db = '$ssl', sql_db = '$sql', git_db = '$git', ver_db = '$ver', last_update = '$date' WHERE sid_db = '$serverID'";
 if (!$result = $db->query($squ)) { die('There was an error running the update query [' . $db->error . ']'); }
 	}
 

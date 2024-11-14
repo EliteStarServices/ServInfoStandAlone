@@ -2,7 +2,7 @@
 	/*
 	 * ServInfo Server Information Manager
 	 * Author: Elite Star Services
-	 * Web: https://elite-star-services.com/servinfo
+	 * Web: https://servinfo.elite-star-services.com/
 	 * 
 	 * @Changelog:
 	 * https://servinfo.elite-star-services.com/sc-changelog/
@@ -171,7 +171,12 @@ $web_out = explode(' (', $row["web_db"]);
 $www_out = (strlen($www_in) > 21) ? '<span  title="'.$www_in.'">'.substr($www_in,0,18).'...' : $www_in;
 echo '<small>'.$web_out[0].'<br>'.$www_out.'</small></td><td>';
 $php_out = explode('-', $row["php_db"]);
+$pma_link = $row["xdb1"];
+if ($pma_link != "") {
+echo '<small><b><a href="'.$pma_link.'" title="PHP MyAdmin Link">PHP '.$php_out[0].'</a></b><br>'.$row["sql_db"].'</small></td><td>';
+} else {
 echo '<small>PHP '.$php_out[0].'<br>'.$row["sql_db"].'</small></td><td>';
+}
 
 
 // DETERMINE HOW TO SHOW CERT INFO
@@ -179,7 +184,7 @@ if ($ssl == "No Certificate Found") {
 	echo '<small>'.$ssl.'<br>'.$upTime.'</small></td><td>';
 } else {
 	$ext_ssl = explode(" | ", $ssl);
-	echo '<small>'.$ext_ssl[0].'<br><span  title="Uptime: '.$upTime.'">'.$ext_ssl[1].'</span></small></td><td>';
+	echo '<small><span  title="'.$ext_ssl[0].'">Cert '.$ext_ssl[1].'</span><br>'.$upTime.'</small></td><td>';
 }
 
 

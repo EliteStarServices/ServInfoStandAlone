@@ -9,7 +9,7 @@
 	 * @Project:
 	 * ServInfo Server Information Manager
 	 * Author: Elite Star Services
-	 * Web: https://elite-star-services.com/servinfo
+	 * Web: https://servinfo.elite-star-services.com/
 	 * 
 	 * @Changelog:
 	 * https://servinfo.elite-star-services.com/sc-changelog/
@@ -246,7 +246,11 @@ if ($certOwn == "") {
 }
 
 if (isset($isPlug)) {
-    require ('../'.WPINC.'/version.php');
+    if( is_multisite() ) {
+        require ('../../'.WPINC.'/version.php');
+    } else {
+        require ('../'.WPINC.'/version.php');
+    }
     $url = plugin_dir_url( __FILE__ );
 } else {
     $actual_link = $setHT . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -592,6 +596,7 @@ $sysinf = array( "SID" => $sid,
                 "WWW" => $www,
                 "USER" => $user,
                 "PHP" => $php,
+                "PMA" => $pmasurl,
                 "SSL" => $ssl,
                 "SQL" => $sql,
                 "GIT" => $git,
@@ -992,7 +997,7 @@ if (!$isPlug) {
 echo '
 <div class="container-fluid">
     <div class="text-center center-block">
-    <p class="txt-railway center"><a href="https://elite-star-services.com/servinfo/">ServInfo Server Information Manager</a></p>
+    <p class="txt-railway center"><a href="https://servinfo.elite-star-services.com/">ServInfo Server Information Manager</a></p>
     </div>
 </div>';
 }

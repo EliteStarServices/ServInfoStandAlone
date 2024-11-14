@@ -2,7 +2,7 @@
     /*
     * ServInfo Server Installer v0.9.4
     * Author: Elite Star Services
-    * Web: https://elite-star-services.com/servinfo
+    * Web: https://servinfo.elite-star-services.com/
     *
     * @Changelog:
     * https://servinfo.elite-star-services.com/ss-changelog/

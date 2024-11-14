@@ -5,7 +5,7 @@
 	 * @Project:
 	 * ServInfo Server Information Manager
 	 * Author: DigTek (Elite Star Services)
-	 * Web: https://elite-star-services.com/servinfo
+	 * Web: https://servinfo.elite-star-services.com/
 	 * 
 	 * @License:
 	 * GPL v3 | https://elite-star-services.com/license/
@@ -147,6 +147,7 @@ $wpv = '';
 	if ($key == "WWW") { $www = mysqli_real_escape_string($db, $value); }
 	if ($key == "USER") { $user = mysqli_real_escape_string($db, $value); }
 	if ($key == "PHP") { $php = mysqli_real_escape_string($db, $value); }
+	if ($key == "PMA") { $pma_link = mysqli_real_escape_string($db, $value); }
 	if ($key == "SSL") { $ssl = mysqli_real_escape_string($db, $value); }
 	if ($key == "SQL") { $sql = mysqli_real_escape_string($db, $value); }
 	if ($key == "GIT") { $git = mysqli_real_escape_string($db, $value); }
@@ -160,7 +161,7 @@ $wpv = '';
 	echo 'Todays Date = '.$date.'<br>';
 
 // SID DOES NOT UPDATE HERE - IT IS ALREADY THE SERVER ID
-$squ = "UPDATE servdata SET url_db = '$url', ip_db = '$ip', pass_db = '$token', host_db = '$host', run_db = '$run', os_db = '$os', ker_db = '$ker', gui_db = '$gui', vm_db = '$vm', cpu_db = '$cpu', mem_db = '$mem', web_db = '$web', www_db = '$www', user_db = '$user', php_db = '$php', ssl_db = '$ssl', sql_db = '$sql', git_db = '$git', ver_db = '$ver', last_update = '$date' WHERE sid_db = '$serverID'";
+$squ = "UPDATE servdata SET url_db = '$url', ip_db = '$ip', pass_db = '$token', host_db = '$host', run_db = '$run', os_db = '$os', ker_db = '$ker', gui_db = '$gui', vm_db = '$vm', cpu_db = '$cpu', mem_db = '$mem', web_db = '$web', www_db = '$www', user_db = '$user', php_db = '$php', xdb1 = '$pma_link', ssl_db = '$ssl', sql_db = '$sql', git_db = '$git', ver_db = '$ver', last_update = '$date' WHERE sid_db = '$serverID'";
 if (!$result2 = $db->query($squ)) { die('There was an error running the update query [' . $db->error . ']'); }
 
 	echo '<b>Server '.$domain.' Updated...</b><hr>';

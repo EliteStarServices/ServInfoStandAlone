@@ -5,7 +5,7 @@
 	 * @Project:
 	 * ServInfo Server Information Manager
 	 * Owner: DigTek (Elite Star Services)
-	 * Web: https://elite-star-services.com/servinfo
+	 * Web: https://servinfo.elite-star-services.com/
 	 * 
 	 * License: GPL v3 | https://elite-star-services.com/license/
 	*/
@@ -14,6 +14,6 @@
 <div class="container-fluid">
 <hr>
 	<div class="text-center center-block">
-	<p class="txt-railway"><a href="https://elite-star-services.com/servinfo"><?php echo "ServInfo Server v".$serverVersion; ?></a></p>
+	<p class="txt-railway"><a href="https://servinfo.elite-star-services.com/"><?php echo "ServInfo Server v".$serverVersion; ?></a></p>
 	</div>
 </div>

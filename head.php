@@ -9,7 +9,7 @@
 	 * @Project: 
 	 *   ServInfo Server Information Manager
 	 *   Author: Elite Star Services
-	 *   Web: https://elite-star-services.com/servinfo
+	 *   Web: https://servinfo.elite-star-services.com/
 	 * 
 	 * @Changelog:
 	 * https://servinfo.elite-star-services.com/sc-changelog/
