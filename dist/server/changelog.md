@@ -1,5 +1,12 @@
 ## [ServInfo](https://servinfo.elite-star-services.com/) Server Change Log
 ---
+### v1.0.0
+2024-11-14
+
+* Added PMA Link to Server Page
+* Better Info on userMenu.php Option
+* Code Cleanup
+
 ### v0.9.5
 2024-03-12
 

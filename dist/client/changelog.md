@@ -1,5 +1,12 @@
 ## [ServInfo](https://servinfo.elite-star-services.com/) Client Change Log
 ---
+### v1.0.0
+2024-11-14
+
+* Updated PMA Link Option
+* Better Info on userInc.php Option
+* Code Cleanup
+
 ### v0.9.8
 2024-03-12
 
