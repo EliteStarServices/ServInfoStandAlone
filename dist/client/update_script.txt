@@ -98,10 +98,10 @@ $zip->close();
 
 
 // DESCRIPTION OF UPGRADE
-echo "<strong>Main Script was Updated</strong>...";
+//echo "<strong>Main Script was Updated</strong>...";
 //echo "<br>Updater Script was Updated...";
 echo "<br>Full File Refresh...";
-echo "<br>userInc.php File Updated...";
+//echo "<br>userInc.php File Updated...";
 
 
 // DELETE UPGRADE & OLD FILES HERE
