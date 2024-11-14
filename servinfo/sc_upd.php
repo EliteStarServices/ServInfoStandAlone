@@ -4,7 +4,7 @@
 	/*
 	 * ServInfo Client Update Tool v1.0.0
 	 * Author: Elite Star Services
-	 * Web: https://elite-star-services.com/servinfo
+	 * Web: https://servinfo.elite-star-services.com/
 	 * 
 	 * @License:
 	 * GPL v3 | https://elite-star-services.com/license/
