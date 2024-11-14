@@ -1,6 +1,6 @@
 <?php
     /*
-    * ServInfo Server Installer v0.9.4
+    * ServInfo Server Installer v1.0.0
     * Author: Elite Star Services
     * Web: https://servinfo.elite-star-services.com/
     *
@@ -45,7 +45,6 @@
 error_reporting(0); //off
 //error_reporting(E_ALL); //on
 //ini_set('display_errors', '1'); //on
-
 
 
 

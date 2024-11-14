@@ -1,6 +1,6 @@
 <?php
     /*
-    * ServInfo Client Installer v0.9.7
+    * ServInfo Client Installer v1.0.0
     * Author: Elite Star Services
     * Web: https://servinfo.elite-star-services.com/
     *
@@ -34,7 +34,7 @@
 <div class="row">
 <div class="col-md-12">
 <div class="panel panel-default panel-navbar">
-<div class='panel-heading center'><a class='si-page-title' href='https://elite-star-services.com/servinfo/'>ServInfo Server Information Manager</a></div>
+<div class='panel-heading center'><a class='si-page-title' href='https://servinfo.elite-star-services.com/'>ServInfo Server Information Manager</a></div>
 <table class='table table-condensed'>
 <tr class='i center bold-text'><td colspan='2'>-- CLIENT INSTALLER --</td><td style='display:none;'></td></tr></table>
 
@@ -337,7 +337,7 @@ $write_cnf = "<?php
 	 * @Project:
 	 * ServInfo Server Information Manager
 	 * Author: DigTek (Elite Star Services)
-	 * Web: https://elite-star-services.com/servinfo
+	 * Web: https://servinfo.elite-star-services.com/
 	 * 
 	 * @Changelog:
 	 * https://servinfo.elite-star-services.com/sc-changelog/

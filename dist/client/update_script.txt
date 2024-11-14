@@ -1,7 +1,7 @@
 <?php
 
 	/*
-	 * ServInfo Client Updater v0.9.8
+	 * ServInfo Client Updater v1.0.0
 	 * Author: Elite Star Services
 	 * Web: https://servinfo.elite-star-services.com/
 	 * 
@@ -100,8 +100,8 @@ $zip->close();
 // DESCRIPTION OF UPGRADE
 echo "<strong>Main Script was Updated</strong>...";
 //echo "<br>Updater Script was Updated...";
-//echo "<br>Full File Refresh...";
-//echo "<br>userInc.php File Updated...";
+echo "<br>Full File Refresh...";
+echo "<br>userInc.php File Updated...";
 
 
 // DELETE UPGRADE & OLD FILES HERE

@@ -1,7 +1,7 @@
 <?php
 
 	/*
-     * ServInfo Server Updater v0.9.4
+     * ServInfo Server Updater v1.0.0
 	 * Author: Elite Star Services
 	 * Web: https://servinfo.elite-star-services.com/
      * 
@@ -98,7 +98,7 @@ $zip->close();
 // DESCRIPTION OF UPGRADE
 echo "<strong>Upgrading Server:</strong>...";
 //echo "<br>Apply Configuration Patches...";
-//echo "<br>Full File Refresh...";
+echo "<br>Full File Refresh...";
 
 
 // DELETE UPGRADE & OLD FILES HERE

@@ -7,8 +7,6 @@
      * @License:
 	* GPL v3 | https://elite-star-services.com/license/
 
-ServInfo Project still in beta...
-
 Upload the file 'server-installer.php' to your php web server and execute.
 The ServInfo Server will be installed to that folder.
 

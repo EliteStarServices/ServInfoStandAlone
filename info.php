@@ -31,10 +31,6 @@ ServInfo is designed to collect Software and System Information for Linux Based 
 <br>
 
 
-<br>* PROJECT STILL IN PUBLIC BETA - PROPER DOCUMENTATION TO FOLLOW *
-<br>
-
-
 <br>The machine hostname can be changed in the file 'etc/hostname' and should be a single unique name such as "MyServer" (this is also used as the machine prompt).
 <br>
 
