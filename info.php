@@ -31,6 +31,11 @@ ServInfo is designed to collect Software and System Information for Linux Based 
 <br>
 
 
+<br>You can edit "userMenu.php" to add or edit the Custom Menu items, these changes will not be affected by updates.
+<br><i>(to remove the Custom Menu, simply rename or delete the file userMenu.php)</i>
+
+
+<br>
 <br>The machine hostname can be changed in the file 'etc/hostname' and should be a single unique name such as "MyServer" (this is also used as the machine prompt).
 <br>
 
