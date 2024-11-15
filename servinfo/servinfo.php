@@ -360,7 +360,11 @@ if ($osID == "debian") {
     $os = $osN.' '.$svi; 
     $sub = ucfirst($osVC);
 }
-if ($osID == "ubuntu") { 
+elseif ($osID == "ubuntu") { 
+    $os = $osPN; 
+    $sub = $osV;
+}
+else {
     $os = $osPN; 
     $sub = $osV;
 }
