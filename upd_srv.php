@@ -124,10 +124,10 @@ if ($data == NULL) { echo "ERROR - No Client Found @ ".$full_url.": Check Server
 
 echo "<b>Client Found @ ".$main_url."</b><br>";
 
+$wpv = '';
+$pma_link = '';
 
 	foreach ($data as $key => $value) {
-
-$wpv = '';
 
 	echo $key.' = '.$value.'<br>';
 
