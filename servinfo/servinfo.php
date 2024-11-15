@@ -20,7 +20,7 @@
 
 
 // SET CURRENT VERSION
-$clientVersion = '1.0.0';
+$clientVersion = '1.0.1';
 
 
 // CHECK IF PLUGIN OR BROWSER CALL (check before loading wp-config)
