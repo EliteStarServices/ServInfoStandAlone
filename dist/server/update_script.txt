@@ -80,7 +80,7 @@ file_put_contents("upgrade.zip", $result);
 echo "<li>Upgrade Package Downloaded...</li>";
 $zip = new ZipArchive;
 if ($zip->open('upgrade.zip') === TRUE) {
-    $zip->extractTo('./');
+@    $zip->extractTo('./');
 $zip->close();
   echo "<li>Package Files Installed...</li>";
   unlink('upgrade.zip');

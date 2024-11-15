@@ -20,7 +20,7 @@
 
 
 // SET CURRENT VERSION
-$clientVersion = '0.9.8';
+$clientVersion = '1.0.0';
 
 
 // CHECK IF PLUGIN OR BROWSER CALL (check before loading wp-config)
@@ -246,11 +246,12 @@ if ($certOwn == "") {
 }
 
 if (isset($isPlug)) {
-    if( is_multisite() ) {
-        require ('../../'.WPINC.'/version.php');
-    } else {
+// CRASHED MULTISITE WITH THIS SETTING
+//    if( is_multisite() ) {
+//        require ('../../'.WPINC.'/version.php');
+//    } else {
         require ('../'.WPINC.'/version.php');
-    }
+//    }
     $url = plugin_dir_url( __FILE__ );
 } else {
     $actual_link = $setHT . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";

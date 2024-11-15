@@ -19,7 +19,7 @@
 	*/
 
 // SET CURRENT SERVER VERSION
-$serverVersion = "0.9.5";
+$serverVersion = "1.0.0";
 require('ss_cnf.php');
 
 ?>
