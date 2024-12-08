@@ -1,5 +1,11 @@
 ## [ServInfo](https://servinfo.elite-star-services.com/) Client Change Log
 ---
+### v1.1.0
+2024-11-24
+
+* Fixed OS Detection Logic
+* Added Blue Haze GUI (Plugin Version)
+
 ### v1.0.0
 2024-11-14
 

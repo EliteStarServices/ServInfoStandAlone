@@ -171,11 +171,12 @@ $web_out = explode(' (', $row["web_db"]);
 $www_out = (strlen($www_in) > 21) ? '<span  title="'.$www_in.'">'.substr($www_in,0,18).'...' : $www_in;
 echo '<small>'.$web_out[0].'<br>'.$www_out.'</small></td><td>';
 $php_out = explode('-', $row["php_db"]);
+$sql_out = explode('-', $row["sql_db"]);
 $pma_link = $row["xdb1"];
 if ($pma_link != "") {
-echo '<small><b><a href="'.$pma_link.'" title="PHP MyAdmin Link">PHP '.$php_out[0].'</a></b><br>'.$row["sql_db"].'</small></td><td>';
+echo '<small><b><a href="'.$pma_link.'" title="PHP MyAdmin Link">PHP '.$php_out[0].'</a></b><br>'.$sql_out[0].'</small></td><td>';
 } else {
-echo '<small>PHP '.$php_out[0].'<br>'.$row["sql_db"].'</small></td><td>';
+echo '<small>PHP '.$php_out[0].'<br>'.$sql_out[0].'</small></td><td>';
 }
 
 

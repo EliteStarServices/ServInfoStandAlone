@@ -20,7 +20,7 @@
 
 
 // SET CURRENT VERSION
-$clientVersion = '1.0.1';
+$clientVersion = '1.1.0';
 
 
 // CHECK IF PLUGIN OR BROWSER CALL (check before loading wp-config)
@@ -198,9 +198,7 @@ $certinfo = json_decode($data, true);
 //print_r($certinfo);
 
 
-
 } else {
-
 
 
 // MAKE LOCAL CHECK FOR SSL CERTIFICATE
@@ -213,7 +211,6 @@ $certinfo = openssl_x509_parse($cert['options']['ssl']['peer_certificate']);
 
 //print_r($certinfo);
 }
-
 
 
 // PROCESS CERTIFICATE DATA
@@ -232,8 +229,6 @@ foreach ($certinfo as $key => $item) {
 }
 
 
-
-
 // SET LOCAL PROTOCOL & URLS HERE IN CASE BEHIND REVERSE PROXY
 if ($certOwn == "") { 
     $ssl = "No Certificate Found"; 
@@ -245,13 +240,14 @@ if ($certOwn == "") {
     $setHT = "https";
 }
 
+
 if (isset($isPlug)) {
-// CRASHED MULTISITE WITH THIS SETTING
-//    if( is_multisite() ) {
-//        require ('../../'.WPINC.'/version.php');
-//    } else {
+// MULTISITE SETTING
+    if( is_multisite() ) {
+        require ('../../'.WPINC.'/version.php');
+    } else {
         require ('../'.WPINC.'/version.php');
-//    }
+    }
     $url = plugin_dir_url( __FILE__ );
 } else {
     $actual_link = $setHT . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -260,14 +256,8 @@ if (isset($isPlug)) {
 }
 
 
-
-
-
 // GET SERVER IP
 $ip = $_SERVER['SERVER_ADDR'];
-
-
-
 
 
 // CHECK FOR PHPMYADMIN VERSION
@@ -315,8 +305,6 @@ else {
     $pmainfo = "https://elite-star-services.com/blog/secure-phpmyadmin/";
     $pmalink = "<a href='".$baseURL."/phpmyadmin/'><b>".$baseURL."/phpmyadmin/</b></a> | <a href='".$pmainfo."' style='color:firebrick;'>PMA URL INSECURE - CLICK FOR INFO TO SECURE</a>";
 }
-
-
 
 
 
@@ -376,7 +364,6 @@ $ker_raw = $outker[0];
 
 
 
-
 // GET DESKTOP INFO - STILL IN BETA
 $dt = 'ls /usr/bin/*session';
 $gui = "No GUI";
@@ -390,7 +377,6 @@ foreach ($desk as $key => $value) {
     if ($value == "/usr/bin/lxqt-session") { $gui = "LXQT"; }
     $guiInf[$key] = $value;
 }
-
 
 
 
@@ -573,14 +559,12 @@ if ($user == "") {
 
 
 
-
 // OPTIONAL USER INCLUDE FILE
 $file = "userInc.php";
 $userIns = "";
 if (file_exists($file)) {
   include $file;
 }
-
 
 
 
@@ -645,8 +629,6 @@ if(isset($_GET["json"])) {
 
 
 
-
-
 // CHECK IF UPDATE AVAILABLE (skip if WP Plugin version)
 if (!isset($isWP)) {
 $versionURL = "https://cs.elite-star-services.com/servinfo_sa/dist/client/version.txt";
@@ -671,9 +653,6 @@ if ( !$remoteVersion ) {
     $hasUpdate = "Yes";
   }
 }
-
-
-
 
 
 
